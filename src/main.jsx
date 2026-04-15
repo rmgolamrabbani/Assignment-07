@@ -1,13 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './Layout/RootLayout'
 import Homepage from './pages/homepage/homepage';
 import Timeline from  './pages/timeline/timeline' ;
 import StatsBoard from './pages/StatsBoard/StatsBoard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import  FriendDetails  from './pages/FriendDetails/FriendDetails';
+
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Homepage />
+      },
+      {
+        path: "/Friends/:friendId",
+        element: <FriendDetails />
       },
       {
         path: "timeline",
