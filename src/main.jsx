@@ -2,18 +2,18 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from './Layout/RootLayout'
-import Homepage from './pages/homepage/homepage';
-import Timeline from  './pages/timeline/timeline' ;
+import RootLayout from './Layout/RootLayout';
+import Timeline from './pages/Timeline/Timeline';
 import StatsBoard from './pages/StatsBoard/StatsBoard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import  FriendDetails  from './pages/FriendDetails/FriendDetails';
-
+import FriendDetails from './pages/FriendDetails/FriendDetails';
+import Homepage from './pages/homepage/homepage';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout/>,
+    element: <RootLayout />,
     children: [
       {
         index: true,
@@ -31,18 +31,13 @@ const router = createBrowserRouter([
         path: "StatsBoard",
         element: <StatsBoard /> 
       },
-
     ],
     errorElement: <NotFoundPage />
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
-
   <StrictMode>
-
-   <RouterProvider router={router} />,
-
-  </StrictMode>,
-
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);
