@@ -8,7 +8,7 @@ import StatsBoard from './pages/StatsBoard/StatsBoard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import FriendDetails from './pages/FriendDetails/FriendDetails';
 import Homepage from './pages/homepage/homepage';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const router = createBrowserRouter([
   {

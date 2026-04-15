@@ -1,7 +1,7 @@
 import React from 'react';
-import AddFriend from '../../component/Home/AddFriend';
-import Friends from '../../component/Home/Friends';
-import StatsBoard from '../../component/Home/StatsBoard';
+import AddFriend from '../../components/Home/AddFriend';
+import Friends from '../../components/Home/Friends';
+import StatsBoard from '../../components/Home/StatsBoard';
 
 const Homepage = () => {
     return (
