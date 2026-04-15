@@ -9,7 +9,6 @@ const Homepage = () => {
             <AddFriend />
             <StatsBoard />
             <Friends />
-            
         </div>
     );
 }
