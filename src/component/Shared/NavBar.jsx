@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { FiClock } from "react-icons/fi";
+import { Link } from "react-router";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,22 +23,22 @@ const NavBar = () => {
    
         <ul className="hidden md:flex items-center gap-3">
           <li>
-            <a href="/" className={`${linkStyle} ${activeStyle}`}>
+            <Link to="/" className={`${linkStyle} ${activeStyle}`}>
               {/* Home Icon */}
               <FaHome />
               Home
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/timeline" className={`${linkStyle} ${normalStyle}`}>
+            <Link to="/timeline" className={`${linkStyle} ${normalStyle}`}>
               <FiClock />
               Timeline
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/stats" className={`${linkStyle} ${normalStyle}`}>
+            <Link to="/stats" className={`${linkStyle} ${normalStyle}`}>
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
                 <path d="M18 17V9"/>
@@ -45,7 +46,7 @@ const NavBar = () => {
                 <path d="M8 17v-3"/>
               </svg>
               Stats
-            </a>
+            </Link>
           </li>
         </ul>
 
