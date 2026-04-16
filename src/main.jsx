@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './Layout/RootLayout';
-import Timeline from './pages/Timeline/Timeline';
+import Timeline from './pages/timeline/timeline';
 import StatsBoard from './pages/StatsBoard/StatsBoard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import FriendDetails from './pages/FriendDetails/FriendDetails';
@@ -41,3 +41,4 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
+
