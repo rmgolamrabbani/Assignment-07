@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaPhone, FaCommentDots, FaVideo } from "react-icons/fa";
+import { TimelineContext } from "../../context/TimelineContext";
+import toast from "react-hot-toast";
 
 const FriendDetails = () => {
   const { friendId } = useParams();
   const navigate = useNavigate();
+  const { addToTimeline } = useContext(TimelineContext);
+
   const [friend, setFriend] = useState(null);
 
   const GOAL_DAYS = 30;
@@ -24,7 +28,7 @@ const FriendDetails = () => {
     return <p className="text-center mt-10">Loading...</p>;
   }
 
-  // 🔥 Logic
+ 
   const daysSince = parseInt(friend.time);
 
   let status = "";
@@ -36,15 +40,15 @@ const FriendDetails = () => {
     status === "Overdue"
       ? "bg-red-100 text-red-500"
       : status === "Almost Due"
-      ? "bg-yellow-100 text-yellow-600"
-      : "bg-green-100 text-green-600";
+        ? "bg-yellow-100 text-yellow-600"
+        : "bg-green-100 text-green-600";
 
   const nextDueDays = GOAL_DAYS - daysSince;
 
   return (
     <div className="bg-gray-100 min-h-screen p-6 flex flex-col items-center">
 
-      {/* 🔙 Back Button */}
+      {/*  Back Button */}
       <div className="max-w-5xl w-full">
         <button
           onClick={() => navigate(-1)}
@@ -82,7 +86,7 @@ const FriendDetails = () => {
             Preferred: email
           </p>
 
-          {/* Actions */}
+          
           <div className="mt-5 space-y-2">
             <button className="w-full py-2 border rounded-lg hover:bg-gray-100">
               Snooze 2 Weeks
@@ -96,10 +100,10 @@ const FriendDetails = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
+       
         <div className="md:col-span-2 space-y-6">
 
-          {/* STATS */}
+          
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-white p-4 rounded-xl shadow text-center">
               <h2 className="text-2xl font-bold text-green-600">
@@ -131,7 +135,7 @@ const FriendDetails = () => {
             </div>
           </div>
 
-          {/* RELATIONSHIP GOAL */}
+         
           <div className="bg-white p-4 rounded-xl shadow flex justify-between items-center">
             <div>
               <h3 className="font-semibold">Relationship Goal</h3>
@@ -144,25 +148,45 @@ const FriendDetails = () => {
             </button>
           </div>
 
-          {/* QUICK CHECK-IN */}
+     
           <div className="bg-white p-4 rounded-xl shadow">
             <h3 className="font-semibold mb-4">Quick Check-In</h3>
 
             <div className="grid grid-cols-3 gap-4">
-              <button className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100">
+
+              <button
+                onClick={() => {
+                  addToTimeline("Call", friend.name);
+                  toast.success("Call added to timeline");
+                }}
+                className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100 transition"
+              >
                 <FaPhone className="text-xl mb-2" />
                 Call
               </button>
 
-              <button className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100">
+              <button
+                onClick={() => {
+                  addToTimeline("Text", friend.name);
+                  toast.success("Text added to timeline ");
+                }}
+                className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100 transition"
+              >
                 <FaCommentDots className="text-xl mb-2" />
                 Text
               </button>
 
-              <button className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100">
+              <button
+                onClick={() => {
+                  addToTimeline("Video", friend.name);
+                  toast.success("Video added to timeline ");
+                }}
+                className="flex flex-col items-center py-4 border rounded-xl hover:bg-gray-100 transition"
+              >
                 <FaVideo className="text-xl mb-2" />
                 Video
               </button>
+
             </div>
           </div>
 
