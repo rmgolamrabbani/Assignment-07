@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <FriendDetails />
       },
       {
-        path: "timeline",
+        path: "Timeline",
         element: <Timeline />
       },
       { 
