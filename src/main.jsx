@@ -7,7 +7,7 @@ import Timeline from './pages/timeline/timeline';
 import StatsBoard from './pages/StatsBoard/StatsBoard';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import FriendDetails from './pages/FriendDetails/FriendDetails';
-import Homepage from './pages/Homepage/Homepage';
+import Homepage from './pages/HomePage/homepage';
 
 
 const router = createBrowserRouter([
