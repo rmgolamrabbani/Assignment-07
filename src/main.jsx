@@ -4,9 +4,9 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './Layout/RootLayout';
 import Timeline from './pages/timeline/timeline';
-import StatsBoard from './pages/statsboard/statsboard';
-import NotFoundPage from './pages/notfoundpage/notfoundpage';
-import FriendDetails from './pages/frienddetails/frienddetails';
+import FriendDetails from './pages/FriendDetails/FriendDetails';
+import StatsBoard from './pages/StatsBoard/StatsBoard';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Homepage from './pages/homepage/homepage';
 
 
