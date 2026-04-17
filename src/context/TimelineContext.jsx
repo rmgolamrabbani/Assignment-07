@@ -19,7 +19,7 @@ const getIcon = (type) => {
 export const TimelineProvider = ({ children }) => {
   const [timeline, setTimeline] = useState([]);
 
-  // 🔥 Load from localStorage
+ 
   useEffect(() => {
     const saved = localStorage.getItem("timeline");
     if (saved) {
@@ -27,7 +27,7 @@ export const TimelineProvider = ({ children }) => {
     }
   }, []);
 
-  // 🔥 Save to localStorage
+ 
   useEffect(() => {
     localStorage.setItem("timeline", JSON.stringify(timeline));
   }, [timeline]);
@@ -37,7 +37,7 @@ export const TimelineProvider = ({ children }) => {
       type,
       person,
       date: new Date().toLocaleDateString(),
-      iconType: type, // 🔥 important (icon JSX save করা যায় না)
+      iconType: type,
     };
 
     setTimeline((prev) => [newItem, ...prev]);

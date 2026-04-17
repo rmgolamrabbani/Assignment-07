@@ -15,7 +15,8 @@ const Timeline = () => {
 
       <h1 className="text-2xl font-bold mb-4">Timeline</h1>
 
-      {/* FILTER */}
+    
+    
       <select
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
@@ -27,7 +28,7 @@ const Timeline = () => {
         <option value="Call">Call</option>
       </select>
 
-      {/* DATA */}
+     
       <div className="space-y-3">
         {filteredData.map((item, index) => (
           <div
