@@ -28,12 +28,13 @@ const Friends = () => {
   }, []);
 
   return (
-    <section className="px-4 md:px-8 py-8 max-w-7xl mx-auto">
+    <div className="bg-gray-100 min-h-screen">
+     <section className="px-4 md:px-8 py-8 max-w-7xl mx-auto bg-gray-100">
       <h2 className="text-xl md:text-2xl font-semibold mb-6">Your Friends</h2>
 
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {friends.map((friend) => (
-          /* Link bebohar kora hoyeche, dynamic friend.id diye */
+         
           <Link to={`/Friends/${friend.id}`} key={friend.id}>
             <div className="bg-white rounded-xl shadow-sm p-5 text-center hover:shadow-md transition cursor-pointer border border-transparent hover:border-blue-200">
               <img
@@ -61,6 +62,8 @@ const Friends = () => {
         ))}
       </div>
     </section>
+    </div>
+   
   );
 };
 
