@@ -8,11 +8,7 @@ const NavBar = () => {
 
  
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
   }, [isOpen]);
 
   const base =
@@ -21,15 +17,15 @@ const NavBar = () => {
   const getLinkClass = ({ isActive }) =>
     `${base} ${
       isActive
-        ? "bg-[#2aa078] text-white shadow-md scale-[1.03]"
+        ? "bg-[#2aa078] text-white shadow-md"
         : "bg-gray-100 hover:bg-gray-200 text-gray-800"
     }`;
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100">
+    <nav className="sticky top-0 z-50 bg-white ">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
         
-       
+      
         <Link to="/" className="text-xl md:text-2xl font-bold text-gray-800">
           Keen<span className="text-[#2aa078]">Keeper</span>
         </Link>
@@ -41,13 +37,11 @@ const NavBar = () => {
               <FaHome /> Home
             </NavLink>
           </li>
-
           <li>
             <NavLink to="/timeline" className={getLinkClass}>
               <FiClock /> Timeline
             </NavLink>
           </li>
-
           <li>
             <NavLink to="/StatsBoard" className={getLinkClass}>
               <FaChartBar /> Stats
@@ -55,62 +49,44 @@ const NavBar = () => {
           </li>
         </ul>
 
-      
+    
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-200 transition"
+          className="md:hidden p-2"
         >
           ☰
         </button>
       </div>
 
-      <div
-        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] transition-all duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        onClick={() => setIsOpen(false)}
-      />
+     
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-   
+  
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-[70] transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-     
-        <div className="p-5 flex justify-between items-center border-b">
-          <h2 className="font-bold text-lg">Menu</h2>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-xl hover:text-red-500"
-          >
-            ✕
-          </button>
+        <div className="p-5 flex justify-between border-b">
+          <h2 className="font-bold">Menu</h2>
+          <button onClick={() => setIsOpen(false)}>✕</button>
         </div>
 
-       
         <div className="p-4 flex flex-col gap-3">
-          <NavLink
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className={getLinkClass}
-          >
+          <NavLink to="/" onClick={() => setIsOpen(false)} className={getLinkClass}>
             <FaHome /> Home
           </NavLink>
 
-          <NavLink
-            to="/timeline"
-            onClick={() => setIsOpen(false)}
-            className={getLinkClass}
-          >
+          <NavLink to="/timeline" onClick={() => setIsOpen(false)} className={getLinkClass}>
             <FiClock /> Timeline
           </NavLink>
 
-          <NavLink
-            to="/StatsBoard"
-            onClick={() => setIsOpen(false)}
-            className={getLinkClass}
-          >
+          <NavLink to="/StatsBoard" onClick={() => setIsOpen(false)} className={getLinkClass}>
             <FaChartBar /> Stats
           </NavLink>
         </div>
